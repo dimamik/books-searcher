@@ -1,0 +1,48 @@
+{
+		"mappings": {
+			"properties": {
+				"book_author": {
+					"type": "search_as_you_type",
+					"fields": {
+						"search_as_you_type": {
+							"type": "search_as_you_type"
+						}
+					}
+				},
+				"book_description": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						}
+					}
+				},
+				"book_genre": {
+					"type": "text",
+					"fields": {
+						"keyword": {
+							"type": "keyword",
+							"ignore_above": 256
+						}
+					}
+				},
+				"book_name": {
+					"type": "search_as_you_type",
+					"fields": {
+						"search_as_you_type": {
+							"type": "search_as_you_type"
+						}
+					}
+				},
+				"book_points": {
+					"type": "double",
+					"fields": {
+						"double": {
+							"type": "double"
+						}
+					}
+				}
+			}
+		}
+}

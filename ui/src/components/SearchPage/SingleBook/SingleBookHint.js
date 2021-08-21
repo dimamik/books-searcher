@@ -16,10 +16,11 @@ export default function SingleBookHint({book, searchQuery}) {
     return <div style={{textOverflow: 'hidden'}}>
         <StyledHeader>
             <span>{getHighlightedText(book.book_name, searchQuery)}</span>
-            <StyledItalic style={{
-                marginLeft: '3vh',
-            }}>{getHighlightedText(book.book_author, searchQuery)}</StyledItalic>
         </StyledHeader>
+        <StyledItalic style={{
+            marginLeft: '3vh',
+        }}>{getHighlightedText(book.book_author, searchQuery)}</StyledItalic>
+
     </div>
 
 }

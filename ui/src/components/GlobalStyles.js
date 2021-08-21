@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   // Navbar styling
-  
+
   #fp-nav.fp-right {
     right: 2vh;
 

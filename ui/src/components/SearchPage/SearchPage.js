@@ -4,7 +4,7 @@ import {useState} from "react";
 import {Box, Grid} from "@material-ui/core";
 import SearchResults from "./SearchResults";
 import {StyledPaper} from "../../styles/Styles";
-import {serviceSearchAPI, serviceSearchAsYouType} from "../../services/SearchService";
+import {listOfBooksTemp} from "../ListOfBooksTemp";
 
 
 export default function SearchPage() {
@@ -17,21 +17,21 @@ export default function SearchPage() {
 
     // TODO Place this calls inside functions below
     const searchAPI = (query) => {
-        serviceSearchAPI(query).then(
-            (res) => setListOfBooks(res)
-        )
+        // serviceSearchAPI(query).then(
+        //     (res) => setListOfBooks(res)
+        // )
         // TODO Delete Temp value
-        // setListOfBooks(listOfBooksTemp)
+        setListOfBooks(listOfBooksTemp)
 
     }
 
     const searchAsYouTypeAPI = (query) => {
 
-        serviceSearchAsYouType(query).then(
-            (res) => setListOfBooks(res)
-        );
+        // serviceSearchAsYouType(query).then(
+        //     (res) => setListOfBooks(res)
+        // );
         // TODO Delete Temp value
-        // setListOfBooks(listOfBooksTemp)
+        setListOfBooks(listOfBooksTemp)
     }
 
 

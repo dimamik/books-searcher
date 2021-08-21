@@ -12,7 +12,7 @@ const StyledList = styled(ListItem)`
 
 
 const SearchResults = ({listOfBooks}) => {
-    
+
     const selectBook = useContext(selectBookContext);
 
     const options = listOfBooks.map(r => (

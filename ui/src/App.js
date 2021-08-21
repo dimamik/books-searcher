@@ -4,12 +4,13 @@ import {useDarkMode} from "./components/Theme/UseDarkMode";
 import ThemeToggler from "./components/Theme/Toggler";
 import {GlobalStyles} from "./components/GlobalStyles";
 import ReactFullpage from '@fullpage/react-fullpage';
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import ChooseBookDialog from "./components/ChooseBook/ChooseBookDialog";
 import SelectedBooks from "./components/SelectedBooks/SelectedBooks";
 import {CssBaseline} from "@material-ui/core";
 import SearchPage from "./components/SearchPage/SearchPage";
+import {loadSelectedBooks, saveSelectedBooks} from "./services/SelectedBooksCacheService";
 
 class MySection extends React.Component {
     // TODO Remove temp section
@@ -44,15 +45,28 @@ function App() {
 
     const anchors = ["welcomePage", "searchPage", "managePage", "recPage"];
 
+    useEffect(() => {
+        setBooksReadList(() => {
+                return loadSelectedBooks();
+            }
+        );
+    }, []);
+
 
     const selectBook = (book) => {
         setSelectedBook(book);
-
         setBookSelectedDialogState(true);
     }
     const bookSelectedAction = (book) => {
+        saveSelectedBooks([...booksReadList, book]);
 
         setBooksReadList([...booksReadList, book]);
+
+        setBooksReadList(booksReadList.filter((thing, index, self) =>
+                index === self.findIndex((t) => (
+                    t._id === thing._id
+                ))
+        ));
 
     }
     //TODO Play with ReactFullPage more

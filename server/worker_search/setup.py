@@ -1,3 +1,5 @@
+from scrap.load_data_to_elastic import create_index_and_bulk_add_json
+from services.server import run_server
 from scrap.parse_litmir import make_readable_json
 import json
 import requests
@@ -6,6 +8,7 @@ import logging
 from config import init_config
 
 init_config()
+
 
 def create_index():
     # First create index in elastic_search_database
@@ -21,16 +24,13 @@ def create_index():
     else:
         logging.error("Problems creating index...")
 
-from scrap.load_data_to_elastic import create_index_and_bulk_add_json
 
 def init_elasticsearch():
     create_index()
     make_readable_json()
-    create_index_and_bulk_add_json(f"{os.environ['INDEX_NAME']}", 'data/data.json')
+    create_index_and_bulk_add_json(
+        f"{os.environ['INDEX_NAME']}", 'data/data.json')
 
-
-def run_server():
-    pass
 
 if __name__ == "__main__":
     if os.environ['BUILD_ELASTIC'] == "True":

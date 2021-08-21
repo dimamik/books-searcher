@@ -6,7 +6,7 @@ logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 def init_config():
     os.environ['INDEX_NAME'] = 'db_books'
-    os.environ['BUILD_ELASTIC'] = "True"
+    os.environ['BUILD_ELASTIC'] = "False"
 
 
 

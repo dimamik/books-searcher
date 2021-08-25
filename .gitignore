@@ -1,6 +1,6 @@
-# Raw data temp
-/parsed_data
-
+# Raw data
+raw_data
+/env
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

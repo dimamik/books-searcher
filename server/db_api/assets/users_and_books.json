@@ -1,0 +1,16 @@
+{
+  "mappings": {
+    "properties": {
+      "user_id": {
+        "type": "integer"
+      },
+      "book_id": {
+        "type": "integer"
+      },
+      "@timestamp": {
+        "type": "date",
+        "include_in_all": true
+      }
+    }
+  }
+}

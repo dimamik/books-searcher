@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from flask import send_file
 
 from api.server import app
@@ -11,5 +13,6 @@ def upload_index(index_name):
     Sends csv drop of database in response to inner server query
     **DANGEROUS!!**
     """
-    out_path = export_to_csv(index_name)
-    return send_file(out_path, as_attachment=True, attachment_filename=f'{index_name}_drop.csv')
+    # TODO Change request to be paginated and so on
+    export_to_csv(index_name)
+    return send_file(Path('../raw_data/temp.csv'), as_attachment=True, attachment_filename=f'{index_name}_drop.csv')

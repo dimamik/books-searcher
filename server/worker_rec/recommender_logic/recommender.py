@@ -1,28 +1,29 @@
+from bisect import bisect_left
+from collections import namedtuple
+from math import log
+
 import numpy as np
 import scipy.sparse as sp
 import sklearn.preprocessing as pp
 
-from bisect import bisect_left
 from cache import *
-from collections import namedtuple
-from math import log
 
 
 class Recommender(object):
     def __init__(
             self,
-            documents_n      = 2000,
-            persons_n        = 2000,
-            invalidate_after = 5,
-            recs_limit       = 10):
+            documents_n=2000,
+            persons_n=2000,
+            invalidate_after=5,
+            recs_limit=10):
 
-        self.documents_n     = documents_n
-        self.persons_n       = persons_n
-        self.matrix          = Matrix(documents_n, persons_n)
+        self.documents_n = documents_n
+        self.persons_n = persons_n
+        self.matrix = Matrix(documents_n, persons_n)
         self.documents_cache = Cache(documents_n)
-        self.persons_cache   = Cache(persons_n)
+        self.persons_cache = Cache(persons_n)
         self.invalidate_after = invalidate_after
-        self.recs_limit      = recs_limit
+        self.recs_limit = recs_limit
 
     def person_history(self, person_id):
         prs_res = self.persons_cache.get_by_key(person_id)
@@ -31,7 +32,7 @@ class Recommender(object):
         return prs_res.value.history.keys()
 
     def record(self, document_id, person_id):
-        
+
         new_doc = lambda: Document(document_id, self.invalidate_after, self.recs_limit)
         doc_res = self.documents_cache.get_replace(document_id, new_doc)
 
@@ -56,10 +57,10 @@ class Recommender(object):
         total_nz = 2 + self.matrix.nz
         doc_nz = 1 + self.matrix.get_nz_i(doc.idx)
         prs_weight = log(add + self.matrix.get_nz_j(prs.idx))
-        rating = log(total_nz/doc_nz)/prs_weight
+        rating = log(total_nz / doc_nz) / prs_weight
         self.matrix.set(doc.idx, prs.idx, rating)
 
-    def recommend(self, document_id, person_id = None):
+    def recommend(self, document_id, person_id=None):
         doc_res = self.documents_cache.get_by_key(document_id)
         if doc_res == None or not self.matrix.has_nz_i(doc_res.idx):
             return []
@@ -73,7 +74,7 @@ class Recommender(object):
             return []
 
         r = list(enumerate(r.tolist()[0]))
-        r.sort(key = lambda r: r[1], reverse = True)
+        r.sort(key=lambda r: r[1], reverse=True)
         doc_res.value.recs.wear_out()
 
         j = 0
@@ -92,7 +93,7 @@ class Recommender(object):
             j += 1
             if j == self.recs_limit * 10:
                 break
-        
+
         return self.filter(doc_res.value.recs.rlist, person_id)
 
     def filter(self, rlist, person_id):
@@ -122,13 +123,17 @@ class Document(object):
 
     def incr_counter(self):
         self.counter += 1
+
     def restart_counter(self):
         self.counter = 0
+
     def must_invalidate(self):
         return self.counter >= self.invalidate_after
 
 
 PrevVisit = namedtuple('PrevVisit', 'document_id, is_first')
+
+
 class Person(object):
     def __init__(self, pid, history_max_length):
         self.id = pid
@@ -179,6 +184,7 @@ class Recommendations(object):
             delrec = self.rlist.pop()
             del self.rdict[delrec[0]]
 
+
 class Matrix(object):
     def __init__(self, i, j):
         self.m = sp.lil_matrix((i, j))
@@ -187,7 +193,7 @@ class Matrix(object):
         self.nz = 0
 
     def __repr__(self):
-        return str(np.around(self.m.todense(), decimals = 2))
+        return str(np.around(self.m.todense(), decimals=2))
 
     def set(self, i, j, value):
         if value != 0 and self.m[i, j] == 0:
@@ -195,8 +201,8 @@ class Matrix(object):
             self.j_nz[j] += 1
             self.nz += 1
         self.m[i, j] = value
-        
-    def cosine(self, to, axis = 0, normalize = True):
+
+    def cosine(self, to, axis=0, normalize=True):
         if to > self.m.shape[axis] - 1:
             raise ValueError
         m = self.m

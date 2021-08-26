@@ -1,5 +1,5 @@
-import re
 import logging
+import re
 
 REGEX_FORBIDDEN_SET = [
     'Глава \d.*',
@@ -32,7 +32,7 @@ if __name__ == '__main__':
             line = line.split(',')
             if (len(line) != 3):
                 line = [line[0], ''.join(
-                    line[1:len(line)-1]), line[len(line)-1]]
+                    line[1:len(line) - 1]), line[len(line) - 1]]
             try:
                 line[2] = line[2].split('=')[1]
                 line[2] = "".join(filter(str.isdigit, line[2]))

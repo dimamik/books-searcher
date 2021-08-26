@@ -36,14 +36,19 @@ def export_to_csv(index_name, out_path="raw_data/temp.csv"):
     ELASTICSEARCH DOCUMENTS
     """
     # total num of Elasticsearch documents to get with API call
-    total_docs = 10000
+    total_docs = 100
     # TODO Find how to change max size value and automate the process
     print("\nmaking API call to Elasticsearch for", total_docs, "documents.")
     # TODO Replace annoying prints with logs
     response = elastic_client.search(
         index=index_name,
-        body={},
-        size=10000,
+        body={
+
+            'fields': ['user_id',
+                       'book_id']
+        },
+        size=total_docs,
+
     )
 
     # grab list of docs from nested dictionary response
@@ -90,4 +95,4 @@ def export_to_csv(index_name, out_path="raw_data/temp.csv"):
 
 
 if __name__ == '__main__':
-    export_to_csv('users_and_books')
+    export_to_csv('users_and_books', out_path='hello.csv')

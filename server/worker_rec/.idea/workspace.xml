@@ -2,36 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/assets/post_req.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/data/data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/data/data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/scrap/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/scrap/combine_csv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/scrap/convert_to_json.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/scrap/load_data_to_elastic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/scrap/parse_litmir.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/scrap/to_write.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/services/search_worker/google_search_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/services/search_worker/main_search_engine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/services/server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../worker_search/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/api/database_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/api/database_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/elastic/get_data_from_elastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/elastic/get_data_from_elastic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/worker_rec.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/worker_rec.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommender_logic/recommender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/wrapper_recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommender_logic/wrapper_recommender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1xAXtpATmsC5DwXYmnpkxA7IZH8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -40,7 +39,37 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../db_api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="worker_rec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.setup" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,10 +80,36 @@
       <option name="presentableId" value="Default" />
       <updated>1629799103271</updated>
       <workItem from="1629799110139" duration="41000" />
+      <workItem from="1629993754376" duration="8453000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/api/recommend_api.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/worker_rec$setup.coverage" NAME="setup Coverage Results" MODIFIED="1630013275744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

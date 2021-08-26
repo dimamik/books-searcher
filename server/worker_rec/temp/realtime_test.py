@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-from main import *
 import sys
+
+from main import *
 
 visits = 0
 tries = 0
 guesses = 0
 
 c = Recommender(documents_n=5, persons_n=3)
-
 
 # Pour document_id,person_id into this script
 for row in sys.stdin:
@@ -34,15 +34,13 @@ for row in sys.stdin:
             # empty recs as a try, so, I increment tries only here
             tries += 1
             if row[0] in rec:
-
                 # Hooray!
                 guesses += 1
 
     # finally, record current visit to keep recommender up to date
     c.record(row[0], row[1])
 
-
 print('Total visits:    {}'.format(visits))
 print('Tries to guess:  {}'.format(tries))
 print('Guesses:         {}'.format(guesses))
-print('CTR:             {:.2f}%'.format(guesses*100/tries))
+print('CTR:             {:.2f}%'.format(guesses * 100 / tries))

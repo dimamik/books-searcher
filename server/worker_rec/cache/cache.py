@@ -6,6 +6,8 @@ KEY = 1
 VAL = 2
 
 Result = namedtuple('Result', 'is_hit, idx, key, value')
+
+
 class Cache(object):
     def __init__(self, size):
         self.size = size
@@ -41,7 +43,7 @@ class Cache(object):
         else:
             return None
 
-    def get_replace(self, key, onmiss = None):
+    def get_replace(self, key, onmiss=None):
         if key in self.key_map:
             if key in self.t1:
                 self.t1.remove(key)
@@ -127,7 +129,7 @@ class Deque(object):
     def __init__(self):
         self.od = OrderedDict()
 
-    def appendleft(self, k, v = None):
+    def appendleft(self, k, v=None):
         if k in self.od:
             del self.od[k]
         self.od[k] = v
@@ -152,5 +154,3 @@ class Deque(object):
 
     def __iter__(self):
         return reversed(self.od)
-
-

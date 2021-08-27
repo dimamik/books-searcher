@@ -22,12 +22,13 @@ if __name__ == '__main__':
     if os.environ['BUILD_ELASTIC'] == 'True':
         # Convert csv to json and filter data
         books_json_path = convert_csv_to_json(os.environ['PATH_TO_BOOKS'])
-        users_json_path = convert_users_csv_to_json(os.environ['PATH_TO_USERS'])
         create_index_and_fill_with_data('books_index', os.environ['PATH_TO_BOOKS'].replace(".csv", ".json"),
-                                        #                                 'assets/books_index_def.json')
-                                        create_index_and_fill_with_data('users_and_books',
-                                                                        os.environ['PATH_TO_USERS'].replace(".csv",
-                                                                                                            ".json"),
-                                                                        'assets/users_and_books.json'))
+                                        'assets/books_index_def.json')
+
+        # users_json_path = convert_users_csv_to_json(os.environ['PATH_TO_USERS'])
+    create_index_and_fill_with_data('users_and_books',
+                                    os.environ['PATH_TO_USERS'].replace(".csv",
+                                                                        ".json"),
+                                    'assets/users_and_books.json')
 
     run_server()

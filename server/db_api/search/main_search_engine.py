@@ -23,6 +23,7 @@ def clean_response(func):
     return wrapper_clean_response
 
 
+# Send all except book description
 @clean_response
 def search_as_you_type(query):
     return es.search(index=os.environ['BOOKS_INDEX'], body={
@@ -37,8 +38,12 @@ def search_as_you_type(query):
         },
         "size": 10,
         "from": 0
-    }
-                     )
+    }, filter_path=[
+        'hits.hits._source.book_author',
+        'hits.hits._source.book_genre',
+        'hits.hits._source.book_name',
+        'hits.hits._source.book_points'
+    ])
 
 
 @clean_response
@@ -52,8 +57,7 @@ def search(query):
         },
         "size": 10,
         "from": 0
-    }
-                     )
+    },filter_path=['hits.hits._source'])
 
 
 # TODO Place it somewhere else and change structure
@@ -68,8 +72,7 @@ def find_book_id_by_book_name(book_name):
         },
         "size": 1,
         "from": 0
-    }
-                    )
+    })
     if len(res['hits']['hits']) > 0:
         # There are results
         if book_name == res['hits']['hits'][0]['_source']['book_name']:

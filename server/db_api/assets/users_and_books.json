@@ -1,16 +1,25 @@
 {
   "mappings": {
     "properties": {
-      "user_id": {
-        "type": "integer"
-      },
       "book_id": {
-        "type": "integer"
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
       },
-      "@timestamp": {
-        "type": "date",
-        "include_in_all": true
+      "user_id": {
+        "type": "integer",
+        "fields": {
+          "double": {
+            "type": "integer"
+          }
+        }
       }
     }
   }
 }
+
+

@@ -5,7 +5,9 @@ export const serviceSearchAPI = (query) => {
         ((resolve, reject) => {
                 axios.get(`http://localhost:5000/search/${query}`)
                     .then((response) => {
-                        resolve(response.data.hits.hits);
+                        resolve(
+                            response.data.hits.hits
+                        );
                     })
             }
         )

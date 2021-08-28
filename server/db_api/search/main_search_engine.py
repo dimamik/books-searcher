@@ -42,7 +42,8 @@ def search_as_you_type(query):
         'hits.hits._source.book_author',
         'hits.hits._source.book_genre',
         'hits.hits._source.book_name',
-        'hits.hits._source.book_points'
+        'hits.hits._source.book_points',
+        'hits.hits._id'
     ])
 
 
@@ -57,7 +58,7 @@ def search(query):
         },
         "size": 10,
         "from": 0
-    },filter_path=['hits.hits._source'])
+    }, filter_path=['hits.hits._source', 'hits.hits._id'])
 
 
 # TODO Place it somewhere else and change structure
@@ -81,4 +82,4 @@ def find_book_id_by_book_name(book_name):
 
 
 if __name__ == "__main__":
-    print(find_book_id_by_book_name("Похищение в Тютюрлистане"))
+    print(search("Похищение в Тютюрлистане"))

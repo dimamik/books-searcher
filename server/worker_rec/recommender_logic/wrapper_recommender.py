@@ -13,6 +13,9 @@ class WrapperRecommender:
         self.load_index_from_elasticsearch_database(INDEX_NAME)
 
     def record(self, user_id, book_id, add_to_elastic=True):
+        # Check if data is not already in database
+        if book_id in self.get_person_history(user_id):
+            return
         self.recommender.record(book_id, user_id)
         if add_to_elastic:
             es.index(INDEX_NAME, body={'user_id': user_id, 'book_id': book_id})

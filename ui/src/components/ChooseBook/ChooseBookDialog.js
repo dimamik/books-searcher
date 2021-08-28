@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -11,6 +11,7 @@ import {green} from "@material-ui/core/colors";
 import clsx from 'clsx';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {StyledHeader, StyledNormal} from "../../styles/Styles";
+import {addBookToFav} from "../../services/RecomService";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +51,7 @@ const StyledButton = styled(Button)`
   border: 1px solid ${props => props.theme.dividerColor};
 `
 
-function LoadingButton({onClickAction}) {
+function LoadingButton({onClickAction, book_id}) {
     const classes = useStyles();
     const [loading, setLoading] = React.useState(false);
     const [success, setSuccess] = React.useState(false);
@@ -70,17 +71,14 @@ function LoadingButton({onClickAction}) {
     const handleButtonClick = () => {
         if (!loading) {
             setSuccess(false);
-
-            //TODO Change this temp mess to Service calls
             setLoading(true);
-            window.setTimeout(() => {
+            addBookToFav(book_id).then(() => {
                 setLoading(false);
                 setSuccess(true);
-
                 window.setTimeout(() => {
                     onClickAction();
-                }, 500);
-            }, 500);
+                }, 200);
+            });
         }
 
     };
@@ -116,6 +114,16 @@ const DialogWindow = styled.div`
 
 
 export default function ChooseBookDialog({open, setOpen, selectedBook, bookSelectedAction}) {
+
+
+    let [selectedBookProp, setSelectedBookProp] = useState();
+
+    useEffect(() => {
+        if (selectedBook) {
+            setSelectedBookProp(selectedBook._id);
+        }
+
+    }, [selectedBook])
 
     // TODO Add button to select more books or go further
     const handleSelectBook = () => {
@@ -199,7 +207,9 @@ export default function ChooseBookDialog({open, setOpen, selectedBook, bookSelec
                         }}
                     >
                         <LoadingButton
-                            onClickAction={handleSelectBook}/>
+                            onClickAction={handleSelectBook}
+                            book_id={selectedBookProp}
+                        />
 
                     </DialogActions>
                 </StyledDiv>

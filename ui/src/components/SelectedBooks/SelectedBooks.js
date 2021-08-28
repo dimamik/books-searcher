@@ -1,6 +1,9 @@
 import SingleBookResult from "../SearchPage/SingleBook/SingleBookResult";
 import {List, ListItem} from "@material-ui/core";
 import styled from "styled-components";
+import {useState} from "react";
+import {deleteSelectedBook} from "../../services/SelectedBooksCacheService";
+import {getUserFavourite} from "../../services/RecomService";
 
 
 const StyledList = styled(ListItem)`
@@ -22,21 +25,35 @@ export default function SelectedBooks({booksReadProvider}) {
     let [selectedBooks, setSelectedBooks] = booksReadProvider;
 
 
+    useState(() => {
+        getUserFavourite().then(
+            (result) => {
+                if (result == null) {
+                    setSelectedBooks([]);
+                } else {
+                    setSelectedBooks(result.data);
+                }
+
+            }
+        )
+
+    })
+
     const deleteBook = (book) => {
         let index = selectedBooks.indexOf(book);
 
-        console.log(index);
         let arrayTmp = [...selectedBooks];
         arrayTmp.splice(index, 1)
-
 
         if (index !== -1) {
             setSelectedBooks(arrayTmp);
         }
+        deleteSelectedBook(arrayTmp, book);
+
     }
 
 
-    const options = selectedBooks.map(r => (
+    const options = selectedBooks?.map(r => (
 
 
         <StyledList button key={r._id} onClick={() => deleteBook(r)}
@@ -52,9 +69,12 @@ export default function SelectedBooks({booksReadProvider}) {
         <div
             style={
                 {
-                    marginTop: '5vh'
+                    marginTop: '5vh',
+                    overflow: 'scroll'
                 }
-            }>
+            }
+            className='.scrollable-content'
+        >
             <StyledH1>Selected books</StyledH1>
             Select a book to remove
             <List style={{marginTop: '2vh', padding: 0}}>

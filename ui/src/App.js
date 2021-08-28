@@ -4,24 +4,13 @@ import {useDarkMode} from "./components/Theme/UseDarkMode";
 import ThemeToggler from "./components/Theme/Toggler";
 import {GlobalStyles} from "./components/GlobalStyles";
 import ReactFullpage from '@fullpage/react-fullpage';
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import WelcomePage from "./components/WelcomePage/WelcomePage";
 import ChooseBookDialog from "./components/ChooseBook/ChooseBookDialog";
 import SelectedBooks from "./components/SelectedBooks/SelectedBooks";
 import {CssBaseline} from "@material-ui/core";
 import SearchPage from "./components/SearchPage/SearchPage";
-import {loadSelectedBooks, saveSelectedBooks} from "./services/SelectedBooksCacheService";
-
-class MySection extends React.Component {
-    // TODO Remove temp section
-    render() {
-        return (
-            <div className="section">
-                {this.props.content}
-            </div>
-        );
-    }
-}
+import Recommendations from "./components/Recommendations/Recommendations";
 
 
 // Context to be able to select book from each react component being the child of
@@ -45,20 +34,13 @@ function App() {
 
     const anchors = ["welcomePage", "searchPage", "managePage", "recPage"];
 
-    useEffect(() => {
-        setBooksReadList(() => {
-                return loadSelectedBooks();
-            }
-        );
-    }, []);
-
 
     const selectBook = (book) => {
         setSelectedBook(book);
         setBookSelectedDialogState(true);
     }
     const bookSelectedAction = (book) => {
-        saveSelectedBooks([...booksReadList, book]);
+        // saveSelectedBooks([...booksReadList, book]);
 
         setBooksReadList([...booksReadList, book]);
 
@@ -104,7 +86,7 @@ function App() {
                             <WelcomePage/>
                             <SearchPage/>
                             <SelectedBooks booksReadProvider={booksReadProvider}/>
-                            <MySection content={"Enjoy the recommendations!!"}/>
+                            <Recommendations userPreference={booksReadList}/>
                         </div>
 
                     }}

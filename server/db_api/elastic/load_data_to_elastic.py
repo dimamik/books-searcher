@@ -1,3 +1,5 @@
+import json
+
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
@@ -13,11 +15,12 @@ def isfloat(value):
 
 
 def parse_array_of_json(path):
-    import json
+    """
+    Parses json with respect to book_points double value
+    """
     input_file = open(path)
     json_array = json.load(input_file)
     store_list = []
-
     for item in json_array:
         store_details = item.copy()
         if 'book_points' in store_details:

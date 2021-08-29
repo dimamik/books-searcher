@@ -1,32 +1,34 @@
-import logging
 import os
+import sys
 import time
 
-from api.server import run_server
-from config import init_config
+from config import init_config, init_logging, parse_args
 
-logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
-
-init_config()
 time.time()
 
 if __name__ == '__main__':
-    # run scarp if there is no data in folder data
-    if os.environ['SCARP_WEBPAGE'] == 'True':
-        # TODO Add Scarping
+    init_logging()
+    init_config()
+    parse_args(sys.argv)
+    from api.server import run_server
+    from elastic.init_elasticsearch import create_index_and_fill_with_data
+
+    if os.environ['SCRAP_WEBPAGE'] == 'True':
+        # TODO Add Scrapping
         # Assumes that scarping returns csv in folder raw_data
         pass
-    # Initialize and fill elasticsearch with data if needed
     if os.environ['BUILD_ELASTIC'] == 'True':
-        # Convert csv to json and filter data
+        """
+        Initializes Elasticsearch db with data
+        Needs raw_data/books.csv and raw_data/users_and_books.csv files 
+        """
+        # Uncomment to convert csv to json and filter data
         # books_json_path = convert_csv_to_json(os.environ['PATH_TO_BOOKS'])
-        # create_index_and_fill_with_data('books_index', os.environ['PATH_TO_BOOKS'].replace(".csv", ".json"),
-        #                                 'assets/books_index_def.json')
-        #
         # users_json_path = convert_users_csv_to_json(os.environ['PATH_TO_USERS'])
-        # create_index_and_fill_with_data('users_and_books',
-        #                             os.environ['PATH_TO_USERS'].replace(".csv",
-        #                                                                 ".json"),
-        #                             'assets/users_and_books.json')
-        pass
+        create_index_and_fill_with_data('books_index', os.environ['PATH_TO_BOOKS'].replace(".csv", ".json"),
+                                        'assets/books_index_def.json')
+        create_index_and_fill_with_data('users_and_books',
+                                        os.environ['PATH_TO_USERS'].replace(".csv",
+                                                                            ".json"),
+                                        'assets/users_and_books.json')
     run_server()

@@ -16,9 +16,9 @@ def find_description(book):
     description = description.find("div", class_="BBHtmlCodeInner")
 
     description = description.find_all("p")
-    if (len(description) > 1):
+    if len(description) > 1:
         description = description[1]
-    elif (len(description) == 0):
+    elif len(description) == 0:
         return ""
     else:
         description = description[0]

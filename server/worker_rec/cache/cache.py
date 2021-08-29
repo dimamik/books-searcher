@@ -30,14 +30,14 @@ class Cache(object):
 
     def get_by_key(self, key):
         val = self.key_map.get(key)
-        if val == None:
+        if val is None:
             return None
         return Result(True, val[IDX], val[KEY], val[VAL])
 
     def get_by_idx(self, idx):
-        if isinstance(idx, int) and idx >= 0 and idx < len(self.idx_map):
+        if isinstance(idx, int) and 0 <= idx < len(self.idx_map):
             val = self.idx_map[idx]
-            if val[KEY] == None:
+            if val[KEY] is None:
                 return None
             return Result(True, val[IDX], val[KEY], val[VAL])
         else:

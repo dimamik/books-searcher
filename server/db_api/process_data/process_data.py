@@ -8,7 +8,7 @@ import sys
 import pandas as pd
 
 from process_data.string_filter import filter_book_name, remove_special_chars
-from search.main_search_engine import find_book_id_by_book_name
+from search.elastic_engine import find_book_id_by_book_name
 
 
 # Needs to overcome the built in limit in csv library

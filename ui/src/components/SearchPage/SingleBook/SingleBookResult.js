@@ -3,7 +3,6 @@ import {StyledHeader, StyledItalic, StyledNormal} from "../../../styles/Styles";
 
 export default function SingleBookResult({book}) {
 
-    //TODO Fix book points display
 
     return <div>
         <StyledHeader>
@@ -18,7 +17,8 @@ export default function SingleBookResult({book}) {
             <span>{book.book_points}</span>
         </StyledHeader>
         <StyledItalic style={{
-            marginLeft: '3vh'
+            marginLeft: '3vh',
+            marginRight: '3vh'
         }}>
 
             <span>{book.book_author}</span>

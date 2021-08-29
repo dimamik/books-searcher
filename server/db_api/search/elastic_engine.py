@@ -5,27 +5,26 @@ from elasticsearch import Elasticsearch
 
 from process_data.string_filter import filter_book_name, filter_query
 
-# Separate this instance into subclass and control all
-# its usage
-# TODO Move path to setup folder
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+es = Elasticsearch([{'host': os.environ['ELASTIC_HOST'],
+                     'port': os.environ['ELASTIC_PORT']}])
 
 
 def clean_response(func):
-    """Make sure user is logged in before proceeding"""
-
     @functools.wraps(func)
     def wrapper_clean_response(*args, **kwargs):
         result = func(*args, **kwargs)
-        # TODO There result needs to be cleaned
+        # TODO Clean Results
         return result
 
     return wrapper_clean_response
 
 
-# Send all except book description
 @clean_response
 def search_as_you_type(query):
+    """
+    Returns search results on filtered query containing all
+    fields except description, search_as_you_type fields are used
+    """
     return es.search(index=os.environ['BOOKS_INDEX'], body={
         "query": {
             "multi_match": {
@@ -49,6 +48,9 @@ def search_as_you_type(query):
 
 @clean_response
 def search(query):
+    """
+    Usual search on filtered query
+    """
     return es.search(index=os.environ['BOOKS_INDEX'], body={
         "query": {
             "query_string": {
@@ -61,7 +63,6 @@ def search(query):
     }, filter_path=['hits.hits._source', 'hits.hits._id'])
 
 
-# TODO Place it somewhere else and change structure
 def find_book_id_by_book_name(book_name):
     book_name = filter_book_name(book_name)
     res = es.search(index=os.environ['BOOKS_INDEX'], body={
@@ -79,7 +80,3 @@ def find_book_id_by_book_name(book_name):
         if book_name == res['hits']['hits'][0]['_source']['book_name']:
             return res['hits']['hits'][0]['_id']
     return None
-
-
-if __name__ == "__main__":
-    print(search("Похищение в Тютюрлистане"))

@@ -1,16 +1,27 @@
+import os
+
 from elasticsearch import helpers
 
 from elastic.instance import es
 from recommender_logic.recommender import Recommender
 
-INDEX_NAME = 'users_and_books'
+
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
 
 
-class WrapperRecommender:
-    def __init__(self, n_people, n_books):
+class WrapperRecommender(metaclass=Singleton):
+    def __init__(self,
+                 n_people=os.environ['USERS_MAX_N'],
+                 n_books=os.environ['BOOKS_MAX_N']):
         self.recommender = Recommender(n_books, n_people)
         # Make it lazy-loaded
-        self.load_index_from_elasticsearch_database(INDEX_NAME)
+        self.load_index_from_elasticsearch_database(os.environ['USERS_BOOKS_INDEX'])
 
     def record(self, user_id, book_id, add_to_elastic=True):
         # Check if data is not already in database
@@ -18,7 +29,7 @@ class WrapperRecommender:
             return
         self.recommender.record(book_id, user_id)
         if add_to_elastic:
-            es.index(INDEX_NAME, body={'user_id': user_id, 'book_id': book_id})
+            es.index(os.environ['USERS_BOOKS_INDEX'], body={'user_id': user_id, 'book_id': book_id})
 
     def recommend(self, person_id):
         last_read = self.recommender.person_history(person_id)
@@ -28,7 +39,7 @@ class WrapperRecommender:
         return recs
 
     def drop_record(self, user_id, book_id):
-        res = es.search(index=INDEX_NAME, body={
+        res = es.search(index=os.environ['USERS_BOOKS_INDEX'], body={
             "query": {
                 "bool": {
 
@@ -41,7 +52,7 @@ class WrapperRecommender:
         })['hits']['hits']
         for result in res:
             if result['_source']['book_id'] == book_id:
-                es.delete(index=INDEX_NAME, id=result['_id'])
+                es.delete(index=os.environ['USERS_BOOKS_INDEX'], id=result['_id'])
                 break
             else:
                 raise Exception("No such _id")
@@ -53,7 +64,7 @@ class WrapperRecommender:
         #     Idea is simple - find last number, and assign next to user
         # TODO FIX logic of "registration"
         res = es.search(
-            index=INDEX_NAME,
+            index=os.environ['USERS_BOOKS_INDEX'],
             size=1,
             body={
                 "sort": {
@@ -66,9 +77,6 @@ class WrapperRecommender:
         return last_id
 
     def load_index_from_elasticsearch_database(self, index_name):
-        # TODO This is temporary solution, move it to db_api!
-
-        # call the helpers library's scan() method to scroll
         resp = helpers.scan(
             es,
             index=index_name,

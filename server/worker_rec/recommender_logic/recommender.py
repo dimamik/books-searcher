@@ -27,12 +27,11 @@ class Recommender(object):
 
     def person_history(self, person_id):
         prs_res = self.persons_cache.get_by_key(person_id)
-        if prs_res == None:
+        if prs_res is None:
             return []
         return prs_res.value.history.keys()
 
     def record(self, document_id, person_id):
-
         new_doc = lambda: Document(document_id, self.invalidate_after, self.recs_limit)
         doc_res = self.documents_cache.get_replace(document_id, new_doc)
 

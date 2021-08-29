@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 
 import requests
 
@@ -8,10 +9,10 @@ from elastic.load_data_to_elastic import create_index_and_bulk_add_json
 
 def _create_index(index_name, index_definition_path):
     # First create index in elastic_search_database
-    # with open('assets/books_index_def.json', "r") as json_file:
     with open(index_definition_path, "r", encoding='utf-8') as json_file:
         data = json.load(json_file)
-    url = f"http://localhost:9200/{index_name}"
+    url = f"http://{os.environ['ELASTIC_HOST']}" \
+          f":{os.environ['ELASTIC_PORT']}/{index_name}"
     headers = {
         "Content-Type": "application/json"
     }

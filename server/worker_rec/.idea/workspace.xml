@@ -2,14 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../db_api/search/main_search_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/search/main_search_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/api/search_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/api/search_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/elastic/init_elasticsearch.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/elastic/init_elasticsearch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/elastic/load_data_to_elastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/elastic/load_data_to_elastic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/parse_data/scrap_books/parse_litmir.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/parse_data/scrap_books/parse_litmir.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/process_data/process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/process_data/process_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db_api/search/main_search_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/search/elastic_engine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../db_api/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../db_api/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/recommend_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/recommend_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/books_getter.py" beforeDir="false" afterPath="$PROJECT_DIR$/elastic/books_getter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/instance.py" beforeDir="false" afterPath="$PROJECT_DIR$/elastic/instance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/book_name_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommender_logic/book_name_conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommender_logic/recommender.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recommender_logic/wrapper_recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/recommender_logic/wrapper_recommender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/temp/test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/temp/test.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ui/src/components/ChooseBook/ChooseBookDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ui/src/components/ChooseBook/ChooseBookDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ui/src/components/Recommendations/Recommendations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../ui/src/components/Recommendations/Recommendations.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +118,8 @@
       <workItem from="1629993754376" duration="9000000" />
       <workItem from="1630056330713" duration="215000" />
       <workItem from="1630056707403" duration="14145000" />
-      <workItem from="1630156077768" duration="7467000" />
+      <workItem from="1630156077768" duration="8077000" />
+      <workItem from="1630239799966" duration="7837000" />
     </task>
     <servers />
   </component>
@@ -126,7 +139,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/worker_rec$setup.coverage" NAME="setup Coverage Results" MODIFIED="1630185006268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/worker_rec$setup.coverage" NAME="setup Coverage Results" MODIFIED="1630259790635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/worker_rec$books_getter.coverage" NAME="books_getter Coverage Results" MODIFIED="1630161064419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/elastic" />
   </component>
 </project>

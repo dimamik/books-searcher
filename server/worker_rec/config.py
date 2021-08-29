@@ -1,8 +1,7 @@
 import logging
 import os
-import re
 
-from env import credentials
+import re
 
 
 def init_logging():
@@ -23,20 +22,14 @@ def parse_args(args):
 
 
 def init_config():
-    """
-    Replace credentials with your username and password
-    Used in https://www.litmir.me/
-    This is used in scraping
-    """
-    os.environ['SCRAP_WEBPAGE'] = 'False'
-    os.environ['BUILD_ELASTIC'] = 'False'
     os.environ['BOOKS_INDEX'] = 'books_index'
-    os.environ['USERNAME'] = credentials.username
-    os.environ['PASSWORD'] = credentials.password
-    os.environ['PATH_TO_BOOKS'] = 'raw_data/books.csv'
-    os.environ['PATH_TO_USERS'] = 'raw_data/users_and_books.csv'
+    os.environ['USERS_BOOKS_INDEX'] = 'users_and_books'
+    os.environ['USERS_MAX_N'] = '10000'
+    os.environ['BOOKS_MAX_N'] = '10000'
     os.environ['ELASTIC_HOST'] = 'localhost'
     os.environ['ELASTIC_PORT'] = '9200'
+    os.environ['SERVER_HOST'] = 'localhost'
+    os.environ['SERVER_PORT'] = '5001'
 
 
 if __name__ == "__main__":

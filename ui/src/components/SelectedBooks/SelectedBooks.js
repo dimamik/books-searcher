@@ -20,7 +20,7 @@ const StyledH1 = styled.h1`
 
 export default function SelectedBooks({booksReadProvider}) {
 
-    //TODO Write selected books to browser cache!
+    // TODO Crop Text and add ... if not fitted in visible area
 
     let [selectedBooks, setSelectedBooks] = booksReadProvider;
 
@@ -56,9 +56,15 @@ export default function SelectedBooks({booksReadProvider}) {
     const options = selectedBooks?.map(r => (
 
 
-        <StyledList button key={r._id} onClick={() => deleteBook(r)}
+        <StyledList
+            style={{
+                paddingBottom: '1vh'
+            }}
+            button key={r._id} onClick={() => deleteBook(r)}
         >
-            <SingleBookResult book={r._source}/>
+            <SingleBookResult book={r._source}
+
+            />
         </StyledList>
 
 
@@ -70,10 +76,8 @@ export default function SelectedBooks({booksReadProvider}) {
             style={
                 {
                     marginTop: '5vh',
-                    overflow: 'scroll'
                 }
             }
-            className='.scrollable-content'
         >
             <StyledH1>Selected books</StyledH1>
             Select a book to remove

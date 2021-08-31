@@ -35,8 +35,11 @@ def init_config():
     os.environ['PASSWORD'] = credentials.password
     os.environ['PATH_TO_BOOKS'] = 'raw_data/books.csv'
     os.environ['PATH_TO_USERS'] = 'raw_data/users_and_books.csv'
-    os.environ['ELASTIC_HOST'] = 'localhost'
+    os.environ['ELASTIC_HOST'] = 'elasticsearch'
     os.environ['ELASTIC_PORT'] = '9200'
+    os.environ['SERVER_HOST'] = 'localhost'
+    os.environ['SERVER_PORT'] = '5000'
+    os.environ['RUN_SERVER'] = 'True'
 
 
 if __name__ == "__main__":

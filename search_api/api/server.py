@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+import os
 
 # TODO Change port (and path if needed)
 # TODO Handle CORS Policy!
@@ -12,4 +13,5 @@ def run_server():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host=os.environ['SERVER_HOST'],
+            port=int(os.environ['SERVER_PORT']))

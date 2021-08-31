@@ -31,4 +31,5 @@ if __name__ == '__main__':
                                         os.environ['PATH_TO_USERS'].replace(".csv",
                                                                             ".json"),
                                         'assets/users_and_books.json')
-    run_server()
+    if os.environ['RUN_SERVER'] == 'True':
+        run_server()

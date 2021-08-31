@@ -1,9 +1,8 @@
 import json
 
-from elasticsearch import Elasticsearch
 from elasticsearch import helpers
 
-es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+from search.elastic_engine import es
 
 
 def isfloat(value):

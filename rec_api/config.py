@@ -26,9 +26,9 @@ def init_config():
     os.environ['USERS_BOOKS_INDEX'] = 'users_and_books'
     os.environ['USERS_MAX_N'] = '10000'
     os.environ['BOOKS_MAX_N'] = '10000'
-    os.environ['ELASTIC_HOST'] = 'localhost'
+    os.environ['ELASTIC_HOST'] = 'elasticsearch'
     os.environ['ELASTIC_PORT'] = '9200'
-    os.environ['SERVER_HOST'] = 'localhost'
+    os.environ['SERVER_HOST'] = 'rec_api'
     os.environ['SERVER_PORT'] = '5001'
 
 

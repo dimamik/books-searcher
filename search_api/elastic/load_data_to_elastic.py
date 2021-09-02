@@ -34,4 +34,4 @@ def parse_array_of_json(path):
 
 def create_index_and_bulk_add_json(index_name, json_path):
     array_of_json = parse_array_of_json(json_path)
-    helpers.bulk(es, array_of_json, index=index_name)
+    helpers.bulk(es, array_of_json, index=index_name, chunk_size=400, request_timeout=60)

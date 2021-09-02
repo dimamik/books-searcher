@@ -9,5 +9,7 @@ RUN pip install -r requirements.txt
 
 COPY . /rec_api
 
-ENTRYPOINT [ "python" ]
-CMD [ "setup.py", "ELASTIC_HOST=elasticsearch"]
+# ENTRYPOINT [ "python" ]
+# CMD [ "setup.py", "ELASTIC_HOST=elasticsearch"]
+
+CMD ["uwsgi", "app.ini"]

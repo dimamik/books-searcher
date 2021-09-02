@@ -37,10 +37,9 @@ def init_config():
     os.environ['PATH_TO_USERS'] = 'raw_data/users_and_books.csv'
     os.environ['ELASTIC_HOST'] = 'elasticsearch'
     os.environ['ELASTIC_PORT'] = '9200'
-    os.environ['SERVER_HOST'] = 'localhost'
+    os.environ['SERVER_HOST'] = 'search_api'
     os.environ['SERVER_PORT'] = '5000'
-    os.environ['RUN_SERVER'] = 'True'
-
-
-if __name__ == "__main__":
-    init_config()
+    # This is used for development only!
+    # app.run() starts robust flask server
+    # use uwsgi configuration instead
+    os.environ['RUN_FLASK_WSGI'] = 'False'

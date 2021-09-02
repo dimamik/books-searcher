@@ -1,5 +1,5 @@
 # Raw data
-raw_data
+search_api/raw_data/*.json
 /env
 ### Python ###
 # Byte-compiled / optimized / DLL files

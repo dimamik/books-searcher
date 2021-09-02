@@ -1,0 +1,2 @@
+search_api/raw_data/books.csv filter=lfs diff=lfs merge=lfs -text
+search_api/raw_data/users_and_books.csv filter=lfs diff=lfs merge=lfs -text

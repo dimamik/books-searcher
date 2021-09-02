@@ -3,7 +3,6 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-# TODO Handle CORS Policy!
 
 app = Flask(__name__)
 

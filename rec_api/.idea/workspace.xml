@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../nginx/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/app.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/app.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../search_api/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +104,7 @@
       <workItem from="1630056707403" duration="14145000" />
       <workItem from="1630156077768" duration="8077000" />
       <workItem from="1630239799966" duration="10577000" />
-      <workItem from="1630610568008" duration="1262000" />
+      <workItem from="1630610568008" duration="1958000" />
     </task>
     <servers />
   </component>

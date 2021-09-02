@@ -32,5 +32,8 @@ def init_config():
     os.environ['SERVER_PORT'] = '5001'
 
 
+init_config()
+init_logging()
+
 if __name__ == "__main__":
     init_config()

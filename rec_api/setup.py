@@ -1,12 +1,11 @@
-from recommender_logic.wrapper_recommender import WrapperRecommender
 from config import init_config, parse_args, init_logging
+# config is initialized when imported
+from recommender_logic.wrapper_recommender import WrapperRecommender
 import os
 import sys
 
 
 if __name__ == '__main__':
-    init_logging()
-    init_config()
     parse_args(sys.argv)
 # Init singleton object
     WrapperRecommender(

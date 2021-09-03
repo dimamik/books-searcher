@@ -35,7 +35,7 @@ def init_config():
     os.environ['PASSWORD'] = credentials.password
     os.environ['PATH_TO_BOOKS'] = 'raw_data/books.csv'
     os.environ['PATH_TO_USERS'] = 'raw_data/users_and_books.csv'
-    os.environ['ELASTIC_HOST'] = 'elasticsearch'
+    os.environ['ELASTIC_HOST'] = '185.46.11.241'
     os.environ['ELASTIC_PORT'] = '9200'
     os.environ['SERVER_HOST'] = 'search_api'
     os.environ['SERVER_PORT'] = '5000'

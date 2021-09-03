@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/api/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/api/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../search_api/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../search_api/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/Recommendations/Recommendations.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/Recommendations/Recommendations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/services/RecomService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/services/RecomService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/services/SearchService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/services/SearchService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/services/SelectedBooksCacheService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/services/SelectedBooksCacheService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +105,7 @@
       <workItem from="1630156077768" duration="8077000" />
       <workItem from="1630239799966" duration="10577000" />
       <workItem from="1630610568008" duration="1958000" />
-      <workItem from="1630670047417" duration="2808000" />
+      <workItem from="1630670047417" duration="3167000" />
     </task>
     <servers />
   </component>

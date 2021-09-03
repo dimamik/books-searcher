@@ -1,7 +1,7 @@
 import SingleBookResult from "../SearchPage/SingleBook/SingleBookResult";
 import {List, ListItem} from "@material-ui/core";
 import styled from "styled-components";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {getRecommendations} from "../../services/RecomService";
 
 
@@ -16,22 +16,22 @@ const StyledH1 = styled.h1`
   font-size: x-large;
 `
 
-export default function Recommendations() {
+export default function Recommendations({recProvider}) {
 
 
     //TODO Update Automatically Recommendations on page load using fullPage prop
 
-    let [recommendations, setRecommendations] = useState([]);
+    let [recommendations, setRecommendations] = recProvider;
 
     useEffect(() => {
-        getRecommendations().then((result) => {
-            if (result != null) {
-                setRecommendations(result.data);
-            } else {
-                setRecommendations([]);
-            }
-        })
-    }, recommendations)
+        // getRecommendations().then((result) => {
+        //     if (result != null) {
+        //         setRecommendations(result.data);
+        //     } else {
+        //         setRecommendations([]);
+        //     }
+        // })
+    })
 
 
     const options = recommendations.map(r => (

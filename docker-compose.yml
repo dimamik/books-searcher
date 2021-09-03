@@ -35,9 +35,6 @@ services:
       - IPC_LOCK
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
-      - 9300:9300
     expose:
       - 9200
     healthcheck:
@@ -61,8 +58,8 @@ services:
   rec_api:
     build: ./rec_api
     depends_on:
-      elasticsearch:
-        condition: service_healthy
+      search_api:
+        condition: service_started
     container_name: rec_api
     restart: always
     expose:

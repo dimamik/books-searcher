@@ -11,6 +11,7 @@ import SelectedBooks from "./components/SelectedBooks/SelectedBooks";
 import {CssBaseline} from "@material-ui/core";
 import SearchPage from "./components/SearchPage/SearchPage";
 import Recommendations from "./components/Recommendations/Recommendations";
+import {getRecommendations, getUserFavourite} from "./services/RecomService";
 
 
 // Context to be able to select book from each react component being the child of
@@ -26,6 +27,10 @@ function App() {
     const [selectedBook, setSelectedBook] = useState("");
 
     let [booksReadList, setBooksReadList] = useState([]);
+
+    let [recommendationsList, setRecommendationsList] = useState([]);
+
+    let recProvider = [recommendationsList, setRecommendationsList];
 
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
@@ -78,6 +83,28 @@ function App() {
                     // navigationTooltips={anchors}
                     onLeave={(origin, destination, direction) => {
                         console.log("onLeave event", {origin, destination, direction});
+                        //    Setting selected books
+                        if (destination.anchor === 'managePage') {
+                            getUserFavourite().then(
+                                (result) => {
+                                    if (result == null) {
+                                        setBooksReadList([]);
+                                    } else {
+                                        setBooksReadList(result.data);
+                                    }
+                                }
+                            )
+                        }
+                        //Setting recommendations
+                        if (destination.anchor === 'recPage') {
+                            getRecommendations().then((result) => {
+                                if (result != null) {
+                                    setRecommendationsList(result.data);
+                                } else {
+                                    setRecommendationsList([]);
+                                }
+                            })
+                        }
                     }}
                     render={({state, fullpageApi}) => {
                         console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
@@ -86,7 +113,7 @@ function App() {
                             <WelcomePage/>
                             <SearchPage/>
                             <SelectedBooks booksReadProvider={booksReadProvider}/>
-                            <Recommendations userPreference={booksReadList}/>
+                            <Recommendations recProvider={recProvider}/>
                         </div>
 
                     }}

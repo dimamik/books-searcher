@@ -1,3 +1,4 @@
+import logging
 import os
 import sys
 import time
@@ -7,6 +8,7 @@ from config import parse_args
 time.time()
 
 if __name__ == '__main__':
+    logging.info("Initializing worker setup.py")
     parse_args(sys.argv)
     if os.environ['SCRAP_WEBPAGE'] == 'True':
         # TODO Add Scrapping

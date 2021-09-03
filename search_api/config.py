@@ -43,3 +43,7 @@ def init_config():
     # app.run() starts robust flask server
     # use uwsgi configuration instead
     os.environ['RUN_FLASK_WSGI'] = 'False'
+
+
+init_config()
+init_logging()

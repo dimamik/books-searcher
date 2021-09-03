@@ -3,8 +3,10 @@ import os
 from flask import Flask
 from flask_cors import CORS
 
-# TODO Change port (and path if needed)
-# TODO Handle CORS Policy!
+from config import init_config, init_logging
+
+init_logging()
+init_config()
 app = Flask(__name__)
 
 CORS(app)

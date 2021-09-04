@@ -2,8 +2,6 @@ import logging
 import os
 import re
 
-from env import credentials
-
 
 def init_logging():
     logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
@@ -34,8 +32,12 @@ def init_config():
     os.environ['SCRAP_WEBPAGE'] = 'False'
     os.environ['BUILD_ELASTIC'] = 'False'
     os.environ['BOOKS_INDEX'] = 'books_index'
-    os.environ['USERNAME'] = credentials.username
-    os.environ['PASSWORD'] = credentials.password
+    try:
+        from env import credentials
+        os.environ['USERNAME'] = credentials.username
+        os.environ['PASSWORD'] = credentials.password
+    except ModuleNotFoundError:
+        logging.error("No credentials found, parsing is impossible")
     os.environ['PATH_TO_BOOKS'] = 'raw_data/books.csv'
     os.environ['PATH_TO_USERS'] = 'raw_data/users_and_books.csv'
     os.environ['ELASTIC_HOST'] = 'elasticsearch'

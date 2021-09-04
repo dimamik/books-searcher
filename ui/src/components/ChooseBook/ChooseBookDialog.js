@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const StyledButton = styled(Button)`
+export const StyledButton = styled(Button)`
   border: 1px solid ${props => props.theme.dividerColor};
 `
 
@@ -136,9 +136,10 @@ export default function ChooseBookDialog({open, setOpen, selectedBook, bookSelec
     };
 
     return (
-        <DialogWindow>
+        <DialogWindow
+        >
             <Dialog
-                fullWidth='md'
+                // fullWidth='md'
                 maxWidth='md'
                 open={open}
                 onClose={handleClose}
@@ -173,7 +174,8 @@ export default function ChooseBookDialog({open, setOpen, selectedBook, bookSelec
                                 alignItems: 'center',
                             }}
                         >
-                            {selectedBook ? selectedBook._source.book_name : null}</StyledHeader>
+                            {selectedBook ? selectedBook._source.book_name : null}
+                        </StyledHeader>
                     </DialogTitle>
 
                     <DialogContent
@@ -184,7 +186,8 @@ export default function ChooseBookDialog({open, setOpen, selectedBook, bookSelec
                                 fontWeight: '500',
                                 marginBottom: '2vh'
                             }
-                        }>{selectedBook ? selectedBook._source.book_author : null}</StyledNormal>
+                        }>{selectedBook ? selectedBook._source.book_author : null}
+                        </StyledNormal>
 
                         <DialogContentText
                             className='scrollable-content'

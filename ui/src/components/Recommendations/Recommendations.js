@@ -1,8 +1,9 @@
 import SingleBookResult from "../SearchPage/SingleBook/SingleBookResult";
 import {List, ListItem} from "@material-ui/core";
 import styled from "styled-components";
-import {useEffect} from "react";
-import {getRecommendations} from "../../services/RecomService";
+import React from "react";
+import {StyledButton} from "../ChooseBook/ChooseBookDialog";
+import {deleteCachedUserId} from "../../services/SelectedBooksCacheService";
 
 
 const StyledList = styled(ListItem)`
@@ -22,16 +23,6 @@ export default function Recommendations({recProvider}) {
     //TODO Update Automatically Recommendations on page load using fullPage prop
 
     let [recommendations, setRecommendations] = recProvider;
-
-    useEffect(() => {
-        // getRecommendations().then((result) => {
-        //     if (result != null) {
-        //         setRecommendations(result.data);
-        //     } else {
-        //         setRecommendations([]);
-        //     }
-        // })
-    })
 
 
     const options = recommendations.map(r => (
@@ -53,11 +44,30 @@ export default function Recommendations({recProvider}) {
                 }
             }>
             <StyledH1>Recommended books</StyledH1>
-            <List style={{marginTop: '2vh', padding: 0}}>
+            <List
+                className='scrollable-content'
+                style={{
+                    marginTop: '2vh',
+                    padding: 0,
+                    maxHeight: '80vh',
+                    overflowY: 'auto'
+
+                }}>
                 {options}
             </List>
         </div>
-
+        <StyledButton
+            onClick={deleteCachedUserId}
+            style={{
+                position: 'absolute',
+                bottom: '2vh',                 /* adjust this value to move link up or down */
+                left: '50%',                   /* center link horizontally */
+                transform: 'translateX(-50%)'
+            }}
+            href='#welcomePage'
+        >
+            Clear All
+        </ StyledButton>
     </div>
 
 }

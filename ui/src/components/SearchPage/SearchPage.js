@@ -7,7 +7,7 @@ import {StyledPaper} from "../../styles/Styles";
 import {serviceSearchAPI, serviceSearchAsYouType} from "../../services/SearchService";
 
 
-export default function SearchPage() {
+export default function SearchPage({searchQueryProvider}) {
 
     let [isTriggered, setIsTriggered] = useState(false);
     let [searchQuery, setSearchQuery] = useState("");

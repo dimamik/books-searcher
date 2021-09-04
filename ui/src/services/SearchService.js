@@ -1,6 +1,7 @@
 import axios from "axios";
+import {SEARCH_API} from "./HostConfig";
 
-const API_PATH = "http://185.46.11.241:5000";
+let API_PATH = SEARCH_API;
 
 export const serviceSearchAPI = (query) => {
     return new Promise(
@@ -24,4 +25,10 @@ export const serviceSearchAsYouType = (query) => {
             }
         )
     )
+}
+
+export const searchBookInGoogle = (book_name) => {
+    let search_query = book_name + " fb2"
+    window.open('https://google.com/search?q=' + search_query);
+
 }

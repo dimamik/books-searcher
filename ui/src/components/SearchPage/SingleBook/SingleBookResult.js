@@ -1,10 +1,17 @@
 import {StyledHeader, StyledItalic, StyledNormal} from "../../../styles/Styles";
+import {searchBookInGoogle} from "../../../services/SearchService";
 
 
 export default function SingleBookResult({book}) {
 
+    const findBookGoogle = () => {
+        console.log(book);
+        searchBookInGoogle(book.book_name);
+    }
 
-    return <div>
+    return <div
+        onClick={findBookGoogle}
+    >
         <StyledHeader>
 
             <span>{book.book_name}</span>

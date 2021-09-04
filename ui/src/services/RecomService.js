@@ -1,6 +1,7 @@
 import axios from "axios";
+import {REC_API} from "./HostConfig";
 
-const API_PATH = "http://185.46.11.241:5001";
+let API_PATH = REC_API;
 
 export const addBookToFav = (book_id) => {
     let user_id = window.localStorage.getItem('user_id');
@@ -34,7 +35,6 @@ export const addBookToFav = (book_id) => {
 
 export const getRecommendations = () => {
     let user_id = window.localStorage.getItem('user_id');
-    console.log(user_id);
     if (!user_id) {
         return new Promise((resolve) => resolve(null));
     } else {

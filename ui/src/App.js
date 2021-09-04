@@ -76,13 +76,12 @@ function App() {
                 />
                 <ReactFullpage
                     normalScrollElements={`.scrollable-content`}
-                    debug
                     anchors={anchors}
                     navigation
                     slidesNavigation
                     // navigationTooltips={anchors}
                     onLeave={(origin, destination, direction) => {
-                        console.log("onLeave event", {origin, destination, direction});
+                        // console.log("onLeave event", {origin, destination, direction});
                         //    Setting selected books
                         if (destination.anchor === 'managePage') {
                             getUserFavourite().then(
@@ -107,7 +106,7 @@ function App() {
                         }
                     }}
                     render={({state, fullpageApi}) => {
-                        console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
+                        // console.log("render prop change", state, fullpageApi); // eslint-disable-line no-console
 
                         return <div>
                             <WelcomePage/>

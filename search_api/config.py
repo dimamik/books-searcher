@@ -16,6 +16,7 @@ def parse_args(args):
             arg = re.sub("['\" ]", "", arg)
             key, value = arg.split("=")
             os.environ[key] = value
+            logging.info(f"{key} is set to {value}")
         except ValueError:
             logging.error("Bad format of parameters\n"
                           "Proper way is: "
@@ -28,6 +29,8 @@ def init_config():
     Used in https://www.litmir.me/
     This is used in scraping
     """
+    if 'SCRAP_WEBPAGE' in os.environ:
+        return
     os.environ['SCRAP_WEBPAGE'] = 'False'
     os.environ['BUILD_ELASTIC'] = 'False'
     os.environ['BOOKS_INDEX'] = 'books_index'
@@ -35,7 +38,7 @@ def init_config():
     os.environ['PASSWORD'] = credentials.password
     os.environ['PATH_TO_BOOKS'] = 'raw_data/books.csv'
     os.environ['PATH_TO_USERS'] = 'raw_data/users_and_books.csv'
-    os.environ['ELASTIC_HOST'] = '185.46.11.241'
+    os.environ['ELASTIC_HOST'] = 'elasticsearch'
     os.environ['ELASTIC_PORT'] = '9200'
     os.environ['SERVER_HOST'] = 'search_api'
     os.environ['SERVER_PORT'] = '5000'

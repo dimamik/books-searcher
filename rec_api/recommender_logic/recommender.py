@@ -44,9 +44,9 @@ class Recommender(object):
             self.matrix.zero_j(prs_res.idx)
 
         prev_visit = prs_res.value.set_next_visit(document_id)
-        if prev_visit != None:
+        if prev_visit is not None:
             prev_doc_res = self.documents_cache.get_by_key(prev_visit.document_id)
-            if prev_doc_res != None and prev_doc_res.idx != doc_res.idx:
+            if prev_doc_res is not None and prev_doc_res.idx != doc_res.idx:
                 self._record_dp(doc_res, prs_res, 2)
                 if prev_visit.is_first and prev_doc_res.idx != doc_res.idx:
                     self._record_dp(prev_doc_res, prs_res, 1)
@@ -61,7 +61,7 @@ class Recommender(object):
 
     def recommend(self, document_id, person_id=None):
         doc_res = self.documents_cache.get_by_key(document_id)
-        if doc_res == None or not self.matrix.has_nz_i(doc_res.idx):
+        if doc_res is None or not self.matrix.has_nz_i(doc_res.idx):
             return []
 
         if doc_res.value.recs.has_some() and not doc_res.value.must_invalidate():
@@ -85,7 +85,7 @@ class Recommender(object):
                 continue
 
             rec_res = self.documents_cache.get_by_idx(i)
-            if rec_res == None:
+            if rec_res is None:
                 continue
 
             doc_res.value.recs.insort([rec_res.key, w])
@@ -96,10 +96,10 @@ class Recommender(object):
         return self.filter(doc_res.value.recs.rlist, person_id)
 
     def filter(self, rlist, person_id):
-        if person_id == None:
+        if person_id is None:
             return list(map(lambda r: r[0], rlist))
         prs_res = self.persons_cache.get_by_key(person_id)
-        if prs_res == None:
+        if prs_res is None:
             return list(map(lambda r: r[0], rlist))
 
         j = 0

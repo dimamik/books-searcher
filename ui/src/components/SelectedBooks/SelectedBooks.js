@@ -1,9 +1,6 @@
 import SingleBookResult from "../SearchPage/SingleBook/SingleBookResult";
 import {List, ListItem} from "@material-ui/core";
 import styled from "styled-components";
-import {useState} from "react";
-import {deleteSelectedBook} from "../../services/SelectedBooksCacheService";
-import {getUserFavourite} from "../../services/RecomService";
 
 
 const StyledList = styled(ListItem)`
@@ -25,30 +22,18 @@ export default function SelectedBooks({booksReadProvider}) {
     let [selectedBooks, setSelectedBooks] = booksReadProvider;
 
 
-    useState(() => {
-        // getUserFavourite().then(
-        //     (result) => {
-        //         if (result == null) {
-        //             setSelectedBooks([]);
-        //         } else {
-        //             setSelectedBooks(result.data);
-        //         }
-        //
-        //     }
-        // )
-
-    })
-
     const deleteBook = (book) => {
-        let index = selectedBooks.indexOf(book);
+        //TODO API DOESN'T SUPPORT THIS FUNCTIONALITY
 
-        let arrayTmp = [...selectedBooks];
-        arrayTmp.splice(index, 1)
-
-        if (index !== -1) {
-            setSelectedBooks(arrayTmp);
-        }
-        deleteSelectedBook(arrayTmp, book);
+        // let index = selectedBooks.indexOf(book);
+        //
+        // let arrayTmp = [...selectedBooks];
+        // arrayTmp.splice(index, 1)
+        //
+        // if (index !== -1) {
+        //     setSelectedBooks(arrayTmp);
+        // }
+        // deleteSelectedBook(arrayTmp, book);
 
     }
 
@@ -73,14 +58,16 @@ export default function SelectedBooks({booksReadProvider}) {
     return <div className='section'>
 
         <div
+            className='scrollable-content'
             style={
                 {
                     marginTop: '5vh',
+                    maxHeight: '80vh',
+                    overflowY: 'auto'
                 }
             }
         >
             <StyledH1>Selected books</StyledH1>
-            Select a book to remove
             <List style={{marginTop: '2vh', padding: 0}}>
                 {options}
             </List>

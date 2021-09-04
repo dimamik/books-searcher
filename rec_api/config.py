@@ -15,6 +15,7 @@ def parse_args(args):
             arg = re.sub("['\" ]", "", arg)
             key, value = arg.split("=")
             os.environ[key] = value
+            logging.info(f"{key} is set to {value}")
         except ValueError:
             logging.error("Bad format of parameters\n"
                           "Proper way is: "
@@ -22,6 +23,8 @@ def parse_args(args):
 
 
 def init_config():
+    if 'BOOKS_INDEX' in os.environ:
+        return
     os.environ['BOOKS_INDEX'] = 'books_index'
     os.environ['USERS_BOOKS_INDEX'] = 'users_and_books'
     os.environ['USERS_MAX_N'] = '10000'

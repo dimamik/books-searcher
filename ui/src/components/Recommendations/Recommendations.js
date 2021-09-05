@@ -2,7 +2,7 @@ import SingleBookResult from "../SearchPage/SingleBook/SingleBookResult";
 import {List, ListItem} from "@material-ui/core";
 import styled from "styled-components";
 import React from "react";
-import {StyledButton} from "../ChooseBook/ChooseBookDialog";
+import {StyledButton, StyledDiv} from "../ChooseBook/ChooseBookDialog";
 import {deleteCachedUserId} from "../../services/SelectedBooksCacheService";
 
 
@@ -56,18 +56,20 @@ export default function Recommendations({recProvider}) {
                 {options}
             </List>
         </div>
-        <StyledButton
-            onClick={deleteCachedUserId}
-            style={{
-                position: 'absolute',
-                bottom: '2vh',                 /* adjust this value to move link up or down */
-                left: '50%',                   /* center link horizontally */
-                transform: 'translateX(-50%)'
-            }}
-            href='#welcomePage'
-        >
-            Clear All
-        </ StyledButton>
+        <StyledDiv>
+            <StyledButton
+                onClick={deleteCachedUserId}
+                style={{
+                    position: 'absolute',
+                    bottom: '2vh',                 /* adjust this value to move link up or down */
+                    left: '50%',                   /* center link horizontally */
+                    transform: 'translateX(-50%)'
+                }}
+                href='#welcomePage'
+            >
+                Clear All
+            </ StyledButton>
+        </StyledDiv>
     </div>
 
 }

@@ -1,6 +1,7 @@
 import SingleBookResult from "../SearchPage/SingleBook/SingleBookResult";
 import {List, ListItem} from "@material-ui/core";
 import styled from "styled-components";
+import {StyledNormal} from "../../styles/Styles";
 
 
 const StyledList = styled(ListItem)`
@@ -58,7 +59,7 @@ export default function SelectedBooks({booksReadProvider}) {
     return <div className='section'>
 
         <div
-            className='scrollable-content'
+            // className='scrollable-content'
             style={
                 {
                     marginTop: '5vh',
@@ -68,6 +69,7 @@ export default function SelectedBooks({booksReadProvider}) {
             }
         >
             <StyledH1>Selected books</StyledH1>
+            <StyledNormal>Swipe Down To Get Recommendations</StyledNormal>
             <List style={{marginTop: '2vh', padding: 0}}>
                 {options}
             </List>

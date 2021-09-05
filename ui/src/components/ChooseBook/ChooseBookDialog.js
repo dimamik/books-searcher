@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const StyledButton = styled(Button)`
   border: 1px solid ${props => props.theme.dividerColor};
+  color: ${props => props.theme.text};
 `
 
 function LoadingButton({onClickAction, book_id}) {
@@ -101,7 +102,7 @@ function LoadingButton({onClickAction, book_id}) {
     );
 }
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
   background-color: ${props => props.theme.background};
   color: ${props => props.theme.text};
 `

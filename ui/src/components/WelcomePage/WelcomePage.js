@@ -9,8 +9,9 @@ export default class WelcomePage extends React.Component {
                 >
                     <StyledH1
                         style={{width: '90%'}}
-                    >Welcome in Search Books Engine <br/>
-                        Please, scroll down to select books you like to get recommendations
+                    >Welcome in Books Recommendations Engine <br/>
+                        Please, scroll down to select books you like <br/>
+                        And scroll again to get recommendations
                     </StyledH1>
                 </ZoomedInDiv>
             </div>

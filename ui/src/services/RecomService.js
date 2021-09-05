@@ -29,7 +29,6 @@ export const addBookToFav = (book_id) => {
                 .then(resolve)
         );
     }
-
 }
 
 

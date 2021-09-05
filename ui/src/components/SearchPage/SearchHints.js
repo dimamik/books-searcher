@@ -33,9 +33,8 @@ export default function SearchHints({listOfBooks, searchQuery}) {
     >
 
         <List
-            className='scrollable-content'
             style={{
-                overflowY: "auto",
+                overflowY: "hidden",
                 maxHeight: '80vh',
                 padding: 0
             }}>

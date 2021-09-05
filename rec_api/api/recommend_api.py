@@ -1,4 +1,5 @@
 import json
+import logging
 
 from flask import request
 
@@ -18,6 +19,7 @@ def recommend():
                 to_ret.append(
                     get_book_by_id(rec)
                 )
+        logging.info(f"User: {user_id}, {len(to_ret)} books sent as recommendation")
         return json.dumps(to_ret), 200, {'ContentType': 'application/json'}
     else:
         return "", 200, {'ContentType': 'application/json'}
@@ -56,6 +58,7 @@ def get_user_history():
                 to_ret.append(
                     get_book_by_id(rec)
                 )
+        logging.info(f"User: {user_id}, {len(to_ret)} books sent as favourite")
         return json.dumps(to_ret), 200, {'ContentType': 'application/json'}
     else:
         return json.dumps({'success': False}), 200, {'ContentType': 'application/json'}

@@ -11,7 +11,8 @@ const StyledToggler = styled(Button)`
 const TogglerDiv = styled.div`
   position: fixed;
   display: block;
-  z-index: 100;
+  max-width: 80px;
+  z-index: 50;
   right: 0;
 `
 
@@ -21,7 +22,6 @@ const iconStyles = {
 }
 
 const ThemeToggler = ({switchTheme}) => {
-    //Theme also can be passed via themeContext prop from parent
     const themeContext = useContext(ThemeContext);
 
     let isLightTheme = themeContext.themeName === 'lightTheme';

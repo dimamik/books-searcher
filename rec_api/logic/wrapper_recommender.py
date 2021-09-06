@@ -1,9 +1,8 @@
 import os
 
-from elasticsearch import helpers
-
+from elastic.es_wrapper import get_user_with_max_user_id, load_index_from_elasticsearch
 from elastic.instance import es
-from recommender_logic.recommender import Recommender
+from logic.recommender import Recommender
 
 
 class Singleton(type):
@@ -16,16 +15,29 @@ class Singleton(type):
 
 
 class WrapperRecommender(metaclass=Singleton):
+    """
+    Singleton object
+
+    Is an abstraction of recommender class
+    """
+
     def __init__(self,
-                 n_people=os.environ['USERS_MAX_N'],
-                 n_books=os.environ['BOOKS_MAX_N']):
+                 n_people=10000,
+                 n_books=10000,
+                 load_data_from_elastic=True):
+        """
+        :param n_people: Maximum number of users to handle
+        :param n_books: Maximum number of books to handle
+        :param load_data_from_elastic:
+                    True - loads data from elasticsearch to model
+        """
         self.recommender = Recommender(n_books, n_people)
-        # Make it lazy-loaded
-        self.load_index_from_elasticsearch_database(os.environ['USERS_BOOKS_INDEX'])
+        if load_data_from_elastic:
+            self.load_index_from_elastic_to_model(os.environ['USERS_BOOKS_INDEX'])
 
     def record(self, user_id, book_id, add_to_elastic=True):
-        # Check if data is not already in database
         if book_id in self.get_person_history(user_id):
+            # book_id is already in database
             return
         self.recommender.record(book_id, user_id)
         if add_to_elastic:
@@ -39,6 +51,12 @@ class WrapperRecommender(metaclass=Singleton):
         return recs
 
     def drop_record(self, user_id, book_id):
+        """
+        TODO Functionality needs to be added to recommender
+        :param user_id:
+        :param book_id:
+        :return:
+        """
         res = es.search(index=os.environ['USERS_BOOKS_INDEX'], body={
             "query": {
                 "bool": {
@@ -54,36 +72,18 @@ class WrapperRecommender(metaclass=Singleton):
             if result['_source']['book_id'] == book_id:
                 es.delete(index=os.environ['USERS_BOOKS_INDEX'], id=result['_id'])
                 break
-            else:
-                raise Exception("No such _id")
 
     def get_person_history(self, person_id):
         return self.recommender.person_history(person_id)
 
-    def register_new_user(self):
-        #     Idea is simple - find last number, and assign next to user
-        # TODO FIX logic of "registration"
-        res = es.search(
-            index=os.environ['USERS_BOOKS_INDEX'],
-            size=1,
-            body={
-                "sort": {
-                    "user_id": "desc"
-                }
-            },
-        )
+    @staticmethod
+    def register_new_user():
+        # Idea is simple - find last number, and assign next to user
+        res = get_user_with_max_user_id()
         last_id = int(res['hits']['hits'][0]['_source']['user_id'])
-        last_id += 1
-        return last_id
+        return last_id + 1
 
-    def load_index_from_elasticsearch_database(self, index_name):
-        resp = helpers.scan(
-            es,
-            index=index_name,
-            scroll='1m',
-            size=100,
-        )
-
-        # enumerate the documents
-        for num, doc in enumerate(resp):
+    def load_index_from_elastic_to_model(self, index_name):
+        resp = load_index_from_elasticsearch(index_name)
+        for doc in resp:
             self.record(doc['_source']['user_id'], doc['_source']['book_id'], add_to_elastic=False)

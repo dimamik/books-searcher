@@ -5,7 +5,6 @@ import {searchBookInGoogle} from "../../../services/SearchService";
 export default function SingleBookResult({book}) {
 
     const findBookGoogle = () => {
-        console.log(book);
         searchBookInGoogle(book.book_name);
     }
 

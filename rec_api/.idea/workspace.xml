@@ -2,10 +2,45 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/elastic/es_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../nginx/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/recommend_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/recommend_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/recommend_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/recommend_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.ini" beforeDir="false" afterPath="$PROJECT_DIR$/app.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/cache/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/cache/cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elastic/books_getter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/real_data_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/book_name_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/book_name_conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/recommender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommender_logic/wrapper_recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/wrapper_recommender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/realtime_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/test.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../search_api/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../search_api/api/search_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/api/search_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../search_api/elastic/load_data_to_elastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/elastic/load_data_to_elastic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../search_api/process_data/process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/process_data/process_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../search_api/search/elastic_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/search/search_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../search_api/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/ChooseBook/ChooseBookDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/ChooseBook/ChooseBookDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/ListOfBooksTemp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchField.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchField.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchHints.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchHints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/WelcomePage/WelcomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/WelcomePage/WelcomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SingleBook/SingleBookResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SingleBook/SingleBookResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/SelectedBooks/SelectedBooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SelectedBooks/SelectedBooks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/components/Theme/Toggler.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/Theme/Toggler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/src/services/HostConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/services/HostConfig.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +56,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1xAXtpATmsC5DwXYmnpkxA7IZH8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -38,8 +81,13 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.setup">
-    <configuration name="books_getter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Summer_2021\React\books-searcher\rec_api\recommender_logic" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Unittests for api_tests.IntegrationTest">
+    <configuration name="es_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="worker_rec" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -52,7 +100,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/elastic/books_getter.py" />
+      <option name="SCRIPT_NAME" value="D:\Projects\Summer_2021\React\books-searcher\rec_api\elastic\es_wrapper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -83,10 +131,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests for api_tests.IntegrationTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="worker_rec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;api_tests.IntegrationTest&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests for api_tests.MyTestCase.test_home" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="worker_rec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;api_tests.MyTestCase.test_home&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for api_tests.IntegrationTest" />
+        <item itemvalue="Python tests.Unittests for api_tests.MyTestCase.test_home" />
         <item itemvalue="Python.setup" />
-        <item itemvalue="Python.books_getter" />
+        <item itemvalue="Python.es_wrapper" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +187,9 @@
       <workItem from="1630610568008" duration="1958000" />
       <workItem from="1630670047417" duration="3167000" />
       <workItem from="1630765053112" duration="4369000" />
-      <workItem from="1630850509432" duration="1470000" />
+      <workItem from="1630850509432" duration="2360000" />
+      <workItem from="1630858083022" duration="2292000" />
+      <workItem from="1630925673792" duration="12107000" />
     </task>
     <servers />
   </component>
@@ -127,7 +209,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/rec_api$Unittests_for_api_tests_MyTestCase_test_home.coverage" NAME="Unittests for api_tests.MyTestCase.test_home Coverage Results" MODIFIED="1630947397939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/worker_rec$setup.coverage" NAME="setup Coverage Results" MODIFIED="1630263194743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/worker_rec$books_getter.coverage" NAME="books_getter Coverage Results" MODIFIED="1630161064419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/elastic" />
+    <SUITE FILE_PATH="coverage/rec_api$Unittests_for_api_tests_IntegrationTest.coverage" NAME="Unittests for api_tests.IntegrationTest Coverage Results" MODIFIED="1630954652194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>

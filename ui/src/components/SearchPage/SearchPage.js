@@ -1,65 +1,24 @@
 import SearchField from "./SearchField";
 import SearchHints from "./SearchHints";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Box, Grid} from "@material-ui/core";
 import SearchResults from "./SearchResults";
-import {StyledPaper} from "../../styles/Styles";
+import {StyledHeader, StyledPaper} from "../../styles/Styles";
 import {serviceSearchAPI, serviceSearchAsYouType} from "../../services/SearchService";
 
 
-export default function SearchPage({searchQueryProvider}) {
+export default function SearchPage({isBookSelected}) {
 
     let [isTriggered, setIsTriggered] = useState(false);
     let [searchQuery, setSearchQuery] = useState("");
     let [listOfBooks, setListOfBooks] = useState([])
     let [showSearchResults, setShowSearchResults] = useState(false);
+    let searchQueryProp = [searchQuery, setSearchQuery]
 
-
-    // TODO Place this calls inside functions below
     const searchAPI = (query) => {
         serviceSearchAPI(query).then(
             (res) => setListOfBooks(res)
         )
-        // TODO Delete Temp value
-        // setListOfBooks(listOfBooksTemp)
-
-    }
-
-    const searchAsYouTypeAPI = (query) => {
-
-        serviceSearchAsYouType(query).then(
-            (res) => setListOfBooks(res)
-        );
-        // TODO Delete Temp value
-        // setListOfBooks(listOfBooksTemp)
-    }
-
-
-    const checkQuery = (query) => {
-        if (query === "") {
-            setListOfBooks([]);
-            setSearchQuery(query);
-            return null;
-        }
-        query = query.replaceAll("/", "");
-        return query;
-    }
-
-    // TODO Compose handlers
-
-    const handleSearchAsYouType = (query) => {
-        if ((query = checkQuery(query))) {
-            setSearchQuery(query);
-            setShowSearchResults(false);
-            searchAsYouTypeAPI(query);
-        }
-    }
-    const handleSearchButton = (query) => {
-        if ((query = checkQuery(query))) {
-            setSearchQuery(query);
-            setShowSearchResults(true);
-            searchAPI(query);
-        }
     }
 
     const triggerSearchBar = () => {
@@ -72,8 +31,56 @@ export default function SearchPage({searchQueryProvider}) {
         setIsTriggered(!isTriggered);
     }
 
+    useEffect(() => {
+
+        setSearchQuery("");
+        setIsTriggered(false);
+        setListOfBooks([]);
+        setShowSearchResults(false);
+
+    }, [isBookSelected])
+
+
+    const searchAsYouTypeAPI = (query) => {
+
+        serviceSearchAsYouType(query).then(
+            (res) => setListOfBooks(res)
+        );
+    }
+
+
+    const checkQuery = (query) => {
+        if (query === "") {
+            setListOfBooks([]);
+            setSearchQuery(query);
+            return null;
+        }
+        query = query.replaceAll("/", "");
+        return query;
+    }
+    const handleSearchAsYouType = (query) => {
+        if ((query = checkQuery(query))) {
+            setSearchQuery(query);
+            setShowSearchResults(false);
+            searchAsYouTypeAPI(query);
+        }
+    }
+
+    const handleSearchButton = (query) => {
+        if ((query = checkQuery(query))) {
+            setSearchQuery(query);
+            setShowSearchResults(true);
+            searchAPI(query);
+        }
+    }
+
     return <div
         className="section">
+        <StyledHeader
+            style={{
+                marginTop: '3vh'
+            }}
+        >Select some books and scroll down :/</StyledHeader>
         <Box
             style={{
                 marginTop: !isTriggered ? '35vh' : '8vh',
@@ -97,6 +104,7 @@ export default function SearchPage({searchQueryProvider}) {
                             handleSearchAsYouType={handleSearchAsYouType}
                             triggerSearchBar={triggerSearchBar}
                             handleSearchButton={handleSearchButton}
+                            searchQueryProp={searchQueryProp}
                         />
 
                         {

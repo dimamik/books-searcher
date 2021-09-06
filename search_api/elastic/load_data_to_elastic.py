@@ -2,7 +2,7 @@ import json
 
 from elasticsearch import helpers
 
-from search.elastic_engine import es
+from elastic.instance import es
 
 
 def isfloat(value):

@@ -22,30 +22,36 @@ function App() {
 
     const [theme, switchTheme] = useDarkMode();
 
-    const [bookSelectedDialogState, setBookSelectedDialogState] = React.useState(false);
+    // ChooseBookDialog
+    const [chooseBookDialogState, setChooseBookDialogState] = useState(false);
 
+    // Book Selected to pass to chooseBookDialog
     const [selectedBook, setSelectedBook] = useState("");
 
     let [booksReadList, setBooksReadList] = useState([]);
 
     let [recommendationsList, setRecommendationsList] = useState([]);
 
-    let recProvider = [recommendationsList, setRecommendationsList];
+    let [isBookSelected, setIsBookSelected] = useState(0);
 
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+    let recProvider = [recommendationsList, setRecommendationsList];
 
 
     let booksReadProvider = [booksReadList, setBooksReadList]
+
+
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     const anchors = ["welcomePage", "searchPage", "managePage", "recPage"];
 
 
     const selectBook = (book) => {
         setSelectedBook(book);
-        setBookSelectedDialogState(true);
+        setChooseBookDialogState(true);
     }
+
     const bookSelectedAction = (book) => {
-        // saveSelectedBooks([...booksReadList, book]);
 
         setBooksReadList([...booksReadList, book]);
 
@@ -55,24 +61,29 @@ function App() {
                 ))
         ));
 
+        setIsBookSelected(isBookSelected + 1);
+
     }
-    //TODO Play with ReactFullPage more
-    // normalScrollElements are elements that can normally scroll nevertheless ReactFullPage blocking the scroll
+
+
     return (
 
         <ThemeProvider theme={themeMode}>
 
             <GlobalStyles/>
-            {/*Using normalize.css normalize the stylesheet*/}
+            {/*CssBaseline is using normalize.css to normalize the stylesheet*/}
             <CssBaseline/>
 
             <selectBookContext.Provider value={selectBook}>
 
-                <ThemeToggler switchTheme={switchTheme}/>
+                <ThemeToggler
+                    switchTheme={switchTheme}/>
 
-                <ChooseBookDialog open={bookSelectedDialogState} setOpen={setBookSelectedDialogState}
-                                  selectedBook={selectedBook}
-                                  bookSelectedAction={bookSelectedAction}
+                <ChooseBookDialog
+                    open={chooseBookDialogState}
+                    setOpen={setChooseBookDialogState}
+                    selectedBook={selectedBook}
+                    bookSelectedAction={bookSelectedAction}
                 />
                 <ReactFullpage
                     normalScrollElements={`.scrollable-content`}
@@ -81,7 +92,9 @@ function App() {
                     slidesNavigation
                     // navigationTooltips={anchors}
                     onLeave={(origin, destination, direction) => {
-                        // console.log("onLeave event", {origin, destination, direction});
+                        console.log("onLeave event", {origin, destination, direction});
+                        //TODO Clean this part
+
                         //    Setting selected books
                         if (destination.anchor === 'managePage') {
                             getUserFavourite().then(
@@ -110,7 +123,7 @@ function App() {
 
                         return <div>
                             <WelcomePage/>
-                            <SearchPage/>
+                            <SearchPage isBookSelected={isBookSelected}/>
                             <SelectedBooks booksReadProvider={booksReadProvider}/>
                             <Recommendations recProvider={recProvider}/>
                         </div>

@@ -114,7 +114,12 @@ const DialogWindow = styled.div`
 `
 
 
-export default function ChooseBookDialog({open, setOpen, selectedBook, bookSelectedAction}) {
+export default function ChooseBookDialog({
+                                             open,
+                                             setOpen,
+                                             selectedBook,
+                                             bookSelectedAction
+                                         }) {
 
 
     let [selectedBookProp, setSelectedBookProp] = useState();

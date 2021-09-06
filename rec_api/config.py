@@ -24,6 +24,7 @@ def parse_args(args):
 
 def init_config():
     if 'BOOKS_INDEX' in os.environ:
+        # To not overwrite environ
         return
     os.environ['BOOKS_INDEX'] = 'books_index'
     os.environ['USERS_BOOKS_INDEX'] = 'users_and_books'
@@ -33,6 +34,10 @@ def init_config():
     os.environ['ELASTIC_PORT'] = '9200'
     os.environ['SERVER_HOST'] = 'rec_api'
     os.environ['SERVER_PORT'] = '5001'
+
+
+def set_env(key, value):
+    os.environ[key] = value
 
 
 init_config()

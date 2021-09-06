@@ -6,7 +6,7 @@ import numpy as np
 import scipy.sparse as sp
 import sklearn.preprocessing as pp
 
-from cache import *
+from logic.cache import *
 
 
 class Recommender(object):

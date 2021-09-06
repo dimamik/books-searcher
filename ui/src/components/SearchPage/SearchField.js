@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import {Grid} from "@material-ui/core";
@@ -8,10 +8,11 @@ import {StyledInputBase} from "../../styles/Styles";
 export default function SearchField({
                                         handleSearchAsYouType,
                                         triggerSearchBar,
-                                        handleSearchButton
+                                        handleSearchButton,
+                                        searchQueryProp
                                     }) {
 
-    let [searchQuery, setSearchQuery] = useState("");
+    let [searchQuery, setSearchQuery] = searchQueryProp
 
     const handleInputChange = (event) => {
         let value = event.target.value

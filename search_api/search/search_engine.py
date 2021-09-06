@@ -1,12 +1,8 @@
 import functools
 import os
 
-from elasticsearch import Elasticsearch
-
+from elastic.instance import es
 from process_data.string_filter import filter_book_name, filter_query
-
-es = Elasticsearch([{'host': os.environ['ELASTIC_HOST'],
-                     'port': os.environ['ELASTIC_PORT']}])
 
 
 def clean_response(func):

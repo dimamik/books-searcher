@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/elastic/es_wrapper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../nginx/nginx.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/recommend_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/recommend_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.ini" beforeDir="false" afterPath="$PROJECT_DIR$/app.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/cache/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cache/cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/cache/cache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elastic/books_getter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/real_data_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommender_logic/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommender_logic/book_name_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/book_name_conversion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommender_logic/recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/recommender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recommender_logic/wrapper_recommender.py" beforeDir="false" afterPath="$PROJECT_DIR$/logic/wrapper_recommender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/realtime_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp/test.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/api/search_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/api/search_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/elastic/load_data_to_elastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/elastic/load_data_to_elastic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/process_data/process_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/process_data/process_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/search/elastic_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/search/search_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../search_api/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../search_api/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/ChooseBook/ChooseBookDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/ChooseBook/ChooseBookDialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/ListOfBooksTemp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchField.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchHints.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchHints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SearchPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/SearchPage/SingleBook/SingleBookResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SearchPage/SingleBook/SingleBookResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/SelectedBooks/SelectedBooks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/SelectedBooks/SelectedBooks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/components/Theme/Toggler.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/components/Theme/Toggler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/src/services/HostConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/src/services/HostConfig.js" afterDir="false" />
-    </list>
+    <list default="true" id="018981ee-9316-4ed3-8757-4e7065fae7f5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,7 +149,7 @@
       <workItem from="1630765053112" duration="4369000" />
       <workItem from="1630850509432" duration="2360000" />
       <workItem from="1630858083022" duration="2292000" />
-      <workItem from="1630925673792" duration="12107000" />
+      <workItem from="1630925673792" duration="12361000" />
     </task>
     <servers />
   </component>

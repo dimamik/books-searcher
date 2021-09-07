@@ -90,10 +90,8 @@ function App() {
                     anchors={anchors}
                     navigation
                     slidesNavigation
-                    // navigationTooltips={anchors}
                     onLeave={(origin, destination, direction) => {
-                        console.log("onLeave event", {origin, destination, direction});
-                        //TODO Clean this part
+                        // console.log("onLeave event", {origin, destination, direction});
 
                         //    Setting selected books
                         if (destination.anchor === 'managePage') {

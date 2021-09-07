@@ -3,7 +3,7 @@ import SearchHints from "./SearchHints";
 import {useEffect, useState} from "react";
 import {Box, Grid} from "@material-ui/core";
 import SearchResults from "./SearchResults";
-import {StyledHeader, StyledPaper} from "../../styles/Styles";
+import {StyledItalic, StyledPaper} from "../../styles/Styles";
 import {serviceSearchAPI, serviceSearchAsYouType} from "../../services/SearchService";
 
 
@@ -76,11 +76,11 @@ export default function SearchPage({isBookSelected}) {
 
     return <div
         className="section">
-        <StyledHeader
-            style={{
-                marginTop: '3vh'
-            }}
-        >Select some books and scroll down :/</StyledHeader>
+        {/*<StyledHeader*/}
+        {/*    style={{*/}
+        {/*        marginTop: '3vh'*/}
+        {/*    }}*/}
+        {/*>Select some books and scroll down :/</StyledHeader>*/}
         <Box
             style={{
                 marginTop: !isTriggered ? '35vh' : '8vh',
@@ -146,5 +146,19 @@ export default function SearchPage({isBookSelected}) {
                 }
             </Grid>
         </Box>
+        <div
+            style={{
+                textAlign: 'center',
+                marginBottom: '0.5vh',
+                position: 'absolute',
+                bottom: '0vh',                 /* adjust this value to move link up or down */
+                left: '50%',                   /* center link horizontally */
+                transform: 'translateX(-50%)'
+            }}
+        >
+            <StyledItalic>
+                <b> Swipe Down</b>
+            </StyledItalic>
+        </div>
     </div>
 }

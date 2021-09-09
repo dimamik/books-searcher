@@ -3,7 +3,8 @@ import os
 from elastic.es_wrapper import get_user_with_max_user_id, load_index_from_elasticsearch
 from elastic.instance import es
 from logic.recommender import Recommender
-
+from elastic.es_wrapper import get_list_of_books_indexes_of_user
+import logging
 
 class Singleton(type):
     _instances = {}
@@ -36,15 +37,16 @@ class WrapperRecommender(metaclass=Singleton):
             self.load_index_from_elastic_to_model(os.environ['USERS_BOOKS_INDEX'])
 
     def record(self, user_id, book_id, add_to_elastic=True):
-        if book_id in self.get_person_history(user_id):
+        if add_to_elastic and book_id in get_list_of_books_indexes_of_user(user_id):
             # book_id is already in database
+            logging.info("Book is already in database")
             return
         self.recommender.record(book_id, user_id)
         if add_to_elastic:
             es.index(os.environ['USERS_BOOKS_INDEX'], body={'user_id': user_id, 'book_id': book_id})
 
     def recommend(self, person_id):
-        last_read = self.recommender.person_history(person_id)
+        last_read = get_list_of_books_indexes_of_user(person_id)
         recs = []
         if len(last_read) > 0:
             recs = self.recommender.recommend(last_read[-1], person_id)

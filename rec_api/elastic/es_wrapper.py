@@ -39,6 +39,12 @@ def get_user_books(user_id):
     return res['hits']['hits']
 
 
+def get_list_of_books_indexes_of_user(user_id):
+    res = get_user_books(user_id)
+    return [book_id['_source']['book_id'] for book_id in res]
+
+
+
 def get_user_with_max_user_id():
     return es.search(
         index=os.environ['USERS_BOOKS_INDEX'],

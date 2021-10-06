@@ -19,8 +19,8 @@
     <!-- <a href="https://github.com/dimamik/what-to-read"><strong>Explore the docs »</strong></a>
     <br /> -->
     <br />
-    <a href="http://books-searcher.duckdns.org/">View Demo</a>
-    ·
+    <!-- <a href="http://books-searcher.duckdns.org/">View Demo</a> -->
+    <!-- · -->
     <a href="https://github.com/dimamik/what-to-read/issues">Report Bug</a>
     ·
     <a href="https://github.com/dimamik/what-to-read/issues">Request Feature</a>
@@ -66,7 +66,7 @@
 
 ## Project Structure
 <pre>
-├──nginx - reversed proxy
+├── nginx - reversed proxy
 ├── ui - React Front
 ├── rec_api - REST API server handling recommendations
 ├── search_api - REST API server handling books searching
@@ -155,13 +155,13 @@ Project Link: [https://github.com/dimamik/what-to-read](https://github.com/dimam
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/dimamik/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/dimamik/what-to-read?style=for-the-badge
 [contributors-url]: https://github.com/dimamik/what-to-read/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/dimamik/repo.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/dimamik/what-to-read?style=for-the-badge
 [forks-url]: https://github.com/dimamik/what-to-read/network/members
-[stars-shield]: https://img.shields.io/github/stars/dimamik/repo.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/dimamik/what-to-read?style=for-the-badge
 [stars-url]: https://github.com/dimamik/what-to-read/stargazers
-[issues-shield]: https://img.shields.io/github/issues/dimamik/repo.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/dimamik/what-to-read?style=for-the-badge
 [issues-url]: https://github.com/dimamik/what-to-read/issues
-[license-shield]: https://img.shields.io/github/license/dimamik/repo.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/dimamik/what-to-read?style=for-the-badge
 [license-url]: https://github.com/dimamik/what-to-read/blob/master/LICENSE
